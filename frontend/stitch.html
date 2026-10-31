@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary": "#ffffff", "tertiary-fixed": "#ffdad7", "on-tertiary-container": "#ffecea", "on-primary-container": "#eeefff", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#005236", "on-tertiary-fixed": "#410004", "error-container": "#ffdad6", "surface-dim": "#d2d9f4", "surface-variant": "#dae2fd", "surface-container-low": "#f2f3ff", "secondary": "#006c49", "on-secondary": "#ffffff", "primary-fixed": "#dbe1ff", "primary-fixed-dim": "#b4c5ff", "surface": "#faf8ff", "secondary-container": "#6cf8bb", "secondary-fixed-dim": "#4edea3", "surface-container": "#eaedff", "on-tertiary-fixed-variant": "#930013", "tertiary-fixed-dim": "#ffb3ad", "primary": "#004ac6", "primary-container": "#2563eb", "inverse-on-surface": "#eef0ff", "on-error-container": "#93000a", "outline-variant": "#c3c6d7", "background": "#faf8ff", "surface-tint": "#0053db", "error": "#ba1a1a", "inverse-primary": "#b4c5ff", "inverse-surface": "#283044", "on-secondary-container": "#00714d", "secondary-fixed": "#6ffbbe", "on-background": "#131b2e", "on-error": "#ffffff", "on-surface-variant": "#434655", "tertiary": "#ab0b1c", "on-primary-fixed": "#00174b", "on-primary-fixed-variant": "#003ea8", "surface-container-high": "#e2e7ff", "surface-container-highest": "#dae2fd", "on-surface": "#131b2e", "on-secondary-fixed": "#002113", "outline": "#737686", "tertiary-container": "#cf2c30", "surface-bright": "#faf8ff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-2xl": "2rem", "gutter-md": "1.5rem", "gutter-lg": "2rem", "space-xs": "0.25rem", "space-3xl": "3rem", "space-md": "0.75rem", "space-sm": "0.5rem", "margin": "1rem", "gutter": "1rem", "margin-md": "2rem", "margin-lg": "3rem", "space-xl": "1.5rem", "space-2xs": "0.125rem", "space-lg": "1rem" }, fontFamily: { "display": ["Geist"], "body-sm": ["Geist"], "headline-lg-mobile": ["Geist"], "body-lg": ["Geist"], "body-md": ["Geist"], "mono-metric-md": ["JetBrains Mono"], "headline-md": ["Geist"], "mono-metric-sm": ["JetBrains Mono"], "mono-metric-lg": ["JetBrains Mono"], "label-caps": ["JetBrains Mono"], "headline-sm": ["Geist"], "headline-lg": ["Geist"] }, fontSize: { "display": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.03em", "fontWeight": "600" }], "body-sm": ["0.75rem", { "lineHeight": "1rem", "fontWeight": "400" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "body-md": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "400" }], "mono-metric-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "500" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "mono-metric-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0em", "fontWeight": "400" }], "mono-metric-lg": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "500" }], "label-caps": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.06em", "fontWeight": "600" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.025em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="PulseCheck Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V1x6JPXROXhMrwe-ytraT1_L6dhtyaSINfwQP8V8SoTrbMyAM5IBiyRxg-QpIYS5dzVBKbR4r_JszDqaLUBPc89JkjTG5KkKIw555WRFjF9Sv0rpNuIYq_KS9FN45srGAJxbYQG4F3FSHwaf4H2XThoI4MPTREQX8Bn0AqbTwgPdHVEIQk4F5J-K58bS_TfpqlEFuKNe4tCQHVQeuhMujre5-s2Uy7x4hY1Ie73T8b"/><div class="flex items-center gap-space-xs min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">PulseCheck</span><span class="font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-space-xs py-space-2xs rounded-lg uppercase tracking-wider whitespace-nowrap">v1.0 API Ready</span></div></div><div class="flex items-center gap-space-sm shrink-0"><span class="hidden sm:inline font-headline-sm text-headline-sm text-on-surface-variant truncate max-w-[120px]">Probe</span><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-2xl space-y-space-lg">
+<!-- Subtitle Intro -->
+<div class="flex flex-col space-y-space-2xs">
+<div class="flex items-center gap-space-xs text-primary font-mono-metric-sm text-mono-metric-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-semibold uppercase tracking-wider">Network Diagnostic Node</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+      Real-time endpoint availability & latency inspector
+    </p>
+</div>
+<!-- Diagnostic Inspector Form Card -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<!-- Method Selector Pills -->
+<div class="flex items-center justify-between">
+<div class="flex items-center bg-surface-container-low p-space-2xs rounded-lg gap-space-2xs" id="method-selector">
+<button class="method-btn px-space-sm py-space-2xs rounded font-label-caps text-label-caps font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all" data-method="GET" type="button">GET</button>
+<button class="method-btn px-space-sm py-space-2xs rounded font-label-caps text-label-caps font-semibold text-on-surface-variant hover:text-on-surface transition-all" data-method="HEAD" type="button">HEAD</button>
+<button class="method-btn px-space-sm py-space-2xs rounded font-label-caps text-label-caps font-semibold text-on-surface-variant hover:text-on-surface transition-all" data-method="POST" type="button">POST</button>
+</div>
+<!-- Quick Preset Suggestions -->
+<div class="flex items-center gap-space-2xs">
+<button class="text-on-surface-variant hover:text-primary font-mono-metric-sm text-mono-metric-sm bg-surface-container-low px-space-xs py-space-2xs rounded transition-colors" onclick="setEndpoint('https://api.github.com')" type="button">
+          GitHub
+        </button>
+<button class="text-on-surface-variant hover:text-tertiary font-mono-metric-sm text-mono-metric-sm bg-surface-container-low px-space-xs py-space-2xs rounded transition-colors" onclick="setEndpoint('https://httpstat.us/503')" type="button">
+          Sim 503
+        </button>
+</div>
+</div>
+<!-- URL Input Group -->
+<div class="space-y-space-2xs">
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-sm py-space-xs focus-within:bg-surface-container-lowest focus-within:shadow-[0_0_0_2px_#2563eb] transition-all">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant mr-space-xs">language</span>
+<input class="w-full bg-transparent font-mono-metric-md text-mono-metric-md text-on-surface outline-none placeholder:text-outline-variant" id="target-url-input" placeholder="https://api.example.com/v1/health" type="url" value="https://api.github.com"/>
+<button class="text-on-surface-variant hover:text-on-surface ml-space-xs" onclick="clearInput()" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+<!-- Probe Trigger Button -->
+<button class="w-full h-11 bg-primary-container hover:bg-primary active:scale-[0.99] text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs rounded-lg transition-all shadow-sm" id="probe-btn" onclick="simulateProbe()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="btn-icon">bolt</span>
+<span id="btn-text">Check Status</span>
+</button>
+</section>
+<!-- Probe Result Section -->
+<section class="space-y-space-md transition-opacity duration-200" id="results-display">
+<!-- Live Status Banner Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md" id="status-card">
+<!-- Status Badge & Timestamp Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-container text-on-secondary-container" id="status-pill">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono-metric-sm text-mono-metric-sm font-semibold uppercase tracking-wider" id="status-pill-text">Online</span>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface-variant font-mono-metric-sm text-mono-metric-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span id="checked-timestamp">Just now</span>
+</div>
+</div>
+<!-- Core Metrics Row -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<!-- Status Code Metric -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Status Code</span>
+<div class="mt-space-2xs">
+<span class="font-mono-metric-lg text-mono-metric-lg font-semibold text-secondary" id="status-code-val">200 OK</span>
+</div>
+<span class="font-mono-metric-sm text-mono-metric-sm text-on-surface-variant mt-space-2xs" id="protocol-val">HTTP/2 TLS 1.3</span>
+</div>
+<!-- Response Latency Metric -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Latency</span>
+<span class="font-label-caps text-label-caps px-space-2xs rounded bg-secondary-container text-on-secondary-container font-semibold" id="latency-rating">Fast</span>
+</div>
+<div class="mt-space-2xs">
+<span class="font-mono-metric-lg text-mono-metric-lg font-semibold text-on-surface" id="latency-val">142 ms</span>
+</div>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="material-symbols-outlined text-[14px] text-secondary">trending_down</span>
+<span class="font-mono-metric-sm text-mono-metric-sm text-on-surface-variant">< 200ms benchmark</span>
+</div>
+</div>
+</div>
+<!-- Extended Technical Telemetry List -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-mono-metric-sm text-mono-metric-sm py-space-2xs">
+<span class="text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">lan</span>
+            Resolved IP
+          </span>
+<span class="font-semibold text-on-surface" id="telemetry-ip">140.82.121.4</span>
+</div>
+<div class="flex items-center justify-between font-mono-metric-sm text-mono-metric-sm py-space-2xs">
+<span class="text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">data_object</span>
+            Content-Type
+          </span>
+<span class="text-on-surface" id="telemetry-content">application/json; charset=utf-8</span>
+</div>
+<div class="flex items-center justify-between font-mono-metric-sm text-mono-metric-sm py-space-2xs">
+<span class="text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
+            SSL Certificate
+          </span>
+<span class="text-secondary font-medium" id="telemetry-ssl">Valid (284 days left)</span>
+</div>
+<div class="flex items-center justify-between font-mono-metric-sm text-mono-metric-sm py-space-2xs">
+<span class="text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">public</span>
+            Server Region
+          </span>
+<span class="text-on-surface" id="telemetry-region">US-East (Virginia)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FastAPI Developer Integration Drawer -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded bg-primary-fixed flex items-center justify-center text-primary font-mono-metric-sm font-semibold">
+          ⚡
+        </div>
+<span class="font-headline-sm text-headline-sm text-on-surface">FastAPI Backend Ready</span>
+</div>
+<span class="font-label-caps text-label-caps bg-surface-container-high px-space-xs py-space-2xs rounded text-primary font-semibold">v1 REST API</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Integrate this check directly inside your Python backend services or automation pipelines.
+    </p>
+<!-- Curl Command Block -->
+<div class="space-y-space-2xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps">
+<span>CURL SYNTAX</span>
+<button class="flex items-center gap-space-2xs hover:text-primary transition-colors" onclick="copySnippet('curl-code')" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span id="copy-curl-label">Copy</span>
+</button>
+</div>
+<div class="bg-inverse-surface rounded-lg p-space-sm overflow-x-auto">
+<code class="font-mono-metric-sm text-mono-metric-sm text-inverse-on-surface whitespace-pre" id="curl-code">curl -X POST "https://api.pulsecheck.dev/v1/check" \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://api.github.com", "method": "GET"}'</code>
+</div>
+</div>
+<!-- Python FastAPI Snippet Block -->
+<div class="space-y-space-2xs pt-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps">
+<span>FASTAPI ROUTE HANDLER (PYTHON)</span>
+<button class="flex items-center gap-space-2xs hover:text-primary transition-colors" onclick="copySnippet('py-code')" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span id="copy-py-label">Copy</span>
+</button>
+</div>
+<div class="bg-inverse-surface rounded-lg p-space-sm overflow-x-auto">
+<code class="font-mono-metric-sm text-mono-metric-sm text-inverse-on-surface whitespace-pre" id="py-code">from fastapi import FastAPI, HTTPException
+import httpx, time
+
+app = FastAPI()
+
+@app.post("/api/check")
+async def inspect_endpoint(url: str):
+    start = time.perf_counter()
+    async with httpx.AsyncClient(timeout=5.0) as client:
+        res = await client.get(url)
+    latency_ms = round((time.perf_counter() - start) * 1000)
+    return {"status": res.status_code, "latency_ms": latency_ms}</code>
+</div>
+</div>
+</section>
+</div>
+<script>
+  let activeMethod = 'GET';
+
+  // Toggle HTTP Method pills
+  document.querySelectorAll('.method-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.method-btn').forEach(b => {
+        b.className = 'method-btn px-space-sm py-space-2xs rounded font-label-caps text-label-caps font-semibold text-on-surface-variant hover:text-on-surface transition-all';
+      });
+      const selected = e.currentTarget;
+      selected.className = 'method-btn px-space-sm py-space-2xs rounded font-label-caps text-label-caps font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all';
+      activeMethod = selected.getAttribute('data-method');
+      updateCurlSnippet();
+    });
+  });
+
+  function setEndpoint(url) {
+    const input = document.getElementById('target-url-input');
+    input.value = url;
+    updateCurlSnippet();
+    simulateProbe();
+  }
+
+  function clearInput() {
+    const input = document.getElementById('target-url-input');
+    input.value = '';
+    input.focus();
+    updateCurlSnippet();
+  }
+
+  function updateCurlSnippet() {
+    const url = document.getElementById('target-url-input').value || 'https://api.github.com';
+    const curlEl = document.getElementById('curl-code');
+    curlEl.innerText = `curl -X POST "https://api.pulsecheck.dev/v1/check" \\\n  -H "Content-Type: application/json" \\\n  -d '{"url": "${url}", "method": "${activeMethod}"}'`;
+  }
+
+  function copySnippet(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const labelId = elementId === 'curl-code' ? 'copy-curl-label' : 'copy-py-label';
+      const label = document.getElementById(labelId);
+      const original = label.innerText;
+      label.innerText = 'Copied!';
+      setTimeout(() => { label.innerText = original; }, 1800);
+    });
+  }
+
+  function simulateProbe() {
+    const btn = document.getElementById('probe-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnIcon = document.getElementById('btn-icon');
+    const results = document.getElementById('results-display');
+    const url = document.getElementById('target-url-input').value.trim();
+
+    // Trigger visual pulse loading state
+    btnText.innerText = 'Pinging...';
+    btnIcon.classList.add('animate-spin');
+    results.style.opacity = '0.5';
+
+    setTimeout(() => {
+      btnText.innerText = 'Check Status';
+      btnIcon.classList.remove('animate-spin');
+      results.style.opacity = '1';
+
+      const isError = url.includes('503') || url.includes('offline');
+
+      const pill = document.getElementById('status-pill');
+      const pillText = document.getElementById('status-pill-text');
+      const statusCode = document.getElementById('status-code-val');
+      const latencyVal = document.getElementById('latency-val');
+      const latencyRating = document.getElementById('latency-rating');
+      const telemetryIp = document.getElementById('telemetry-ip');
+      const telemetryContent = document.getElementById('telemetry-content');
+      const telemetrySsl = document.getElementById('telemetry-ssl');
+
+      if (isError) {
+        pill.className = 'flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-error-container text-on-error-container';
+        pillText.innerText = 'Offline';
+        statusCode.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-error';
+        statusCode.innerText = '503 Outage';
+        latencyVal.innerText = '4,120 ms';
+        latencyVal.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-error';
+        latencyRating.className = 'font-label-caps text-label-caps px-space-2xs rounded bg-error-container text-on-error-container font-semibold';
+        latencyRating.innerText = 'Timeout';
+        telemetryIp.innerText = '172.67.189.11';
+        telemetryContent.innerText = 'text/html; charset=UTF-8';
+        telemetrySsl.className = 'text-error font-medium';
+        telemetrySsl.innerText = 'Handshake degraded';
+      } else {
+        pill.className = 'flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-container text-on-secondary-container';
+        pillText.innerText = 'Online';
+        statusCode.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-secondary';
+        statusCode.innerText = '200 OK';
+        const ms = Math.floor(Math.random() * 45) + 115;
+        latencyVal.innerText = `${ms} ms`;
+        latencyVal.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-on-surface';
+        latencyRating.className = 'font-label-caps text-label-caps px-space-2xs rounded bg-secondary-container text-on-secondary-container font-semibold';
+        latencyRating.innerText = 'Fast';
+        telemetryIp.innerText = '140.82.121.4';
+        telemetryContent.innerText = 'application/json; charset=utf-8';
+        telemetrySsl.className = 'text-secondary font-medium';
+        telemetrySsl.innerText = 'Valid (284 days left)';
+      }
+
+      document.getElementById('checked-timestamp').innerText = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }, 450);
+  }
+
+  document.getElementById('target-url-input').addEventListener('input', updateCurlSnippet);
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-sm"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="endpoints" href="#"><span class="material-symbols-outlined text-[22px]">dns</span><span class="font-label-caps text-label-caps mt-space-2xs">Monitors</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-colors text-primary font-semibold" data-path="probe" href="#"><span class="material-symbols-outlined text-[22px]">bolt</span><span class="font-label-caps text-label-caps mt-space-2xs">Probe</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="incidents" href="#"><span class="material-symbols-outlined text-[22px]">crisis_alert</span><span class="font-label-caps text-label-caps mt-space-2xs">Incidents</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-label-caps text-label-caps mt-space-2xs">Config</span></a></div></nav></body></html>
