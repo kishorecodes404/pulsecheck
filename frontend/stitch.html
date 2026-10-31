@@ -228,66 +228,83 @@ async def inspect_endpoint(url: str):
     });
   }
 
-  function simulateProbe() {
-    const btn = document.getElementById('probe-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnIcon = document.getElementById('btn-icon');
-    const results = document.getElementById('results-display');
-    const url = document.getElementById('target-url-input').value.trim();
+ async function simulateProbe() {
+  const btn = document.getElementById('probe-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnIcon = document.getElementById('btn-icon');
+  const results = document.getElementById('results-display');
+  const url = document.getElementById('target-url-input').value.trim();
 
-    // Trigger visual pulse loading state
-    btnText.innerText = 'Pinging...';
-    btnIcon.classList.add('animate-spin');
-    results.style.opacity = '0.5';
-
-    setTimeout(() => {
-      btnText.innerText = 'Check Status';
-      btnIcon.classList.remove('animate-spin');
-      results.style.opacity = '1';
-
-      const isError = url.includes('503') || url.includes('offline');
-
-      const pill = document.getElementById('status-pill');
-      const pillText = document.getElementById('status-pill-text');
-      const statusCode = document.getElementById('status-code-val');
-      const latencyVal = document.getElementById('latency-val');
-      const latencyRating = document.getElementById('latency-rating');
-      const telemetryIp = document.getElementById('telemetry-ip');
-      const telemetryContent = document.getElementById('telemetry-content');
-      const telemetrySsl = document.getElementById('telemetry-ssl');
-
-      if (isError) {
-        pill.className = 'flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-error-container text-on-error-container';
-        pillText.innerText = 'Offline';
-        statusCode.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-error';
-        statusCode.innerText = '503 Outage';
-        latencyVal.innerText = '4,120 ms';
-        latencyVal.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-error';
-        latencyRating.className = 'font-label-caps text-label-caps px-space-2xs rounded bg-error-container text-on-error-container font-semibold';
-        latencyRating.innerText = 'Timeout';
-        telemetryIp.innerText = '172.67.189.11';
-        telemetryContent.innerText = 'text/html; charset=UTF-8';
-        telemetrySsl.className = 'text-error font-medium';
-        telemetrySsl.innerText = 'Handshake degraded';
-      } else {
-        pill.className = 'flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-container text-on-secondary-container';
-        pillText.innerText = 'Online';
-        statusCode.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-secondary';
-        statusCode.innerText = '200 OK';
-        const ms = Math.floor(Math.random() * 45) + 115;
-        latencyVal.innerText = `${ms} ms`;
-        latencyVal.className = 'font-mono-metric-lg text-mono-metric-lg font-semibold text-on-surface';
-        latencyRating.className = 'font-label-caps text-label-caps px-space-2xs rounded bg-secondary-container text-on-secondary-container font-semibold';
-        latencyRating.innerText = 'Fast';
-        telemetryIp.innerText = '140.82.121.4';
-        telemetryContent.innerText = 'application/json; charset=utf-8';
-        telemetrySsl.className = 'text-secondary font-medium';
-        telemetrySsl.innerText = 'Valid (284 days left)';
-      }
-
-      document.getElementById('checked-timestamp').innerText = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    }, 450);
+  if (!url) {
+    alert('Please enter a URL first.');
+    return;
   }
+
+  btnText.innerText = 'Pinging...';
+  btnIcon.classList.add('animate-spin');
+  results.style.opacity = '0.5';
+
+  try {
+    const response = await fetch(
+      `http://127.0.0.1:8000/check?url=${encodeURIComponent(url)}`
+    );
+
+    const data = await response.json();
+
+    const pill = document.getElementById('status-pill');
+    const pillText = document.getElementById('status-pill-text');
+    const statusCode = document.getElementById('status-code-val');
+    const latencyVal = document.getElementById('latency-val');
+    const latencyRating = document.getElementById('latency-rating');
+
+    const telemetryIp = document.getElementById('telemetry-ip');
+    const telemetryContent = document.getElementById('telemetry-content');
+    const telemetrySsl = document.getElementById('telemetry-ssl');
+
+    const isOnline = data.status === 'Online';
+
+    pillText.innerText = data.status;
+
+    statusCode.innerText = data.status_code ?? 'N/A';
+    latencyVal.innerText =
+      data.response_time_ms !== null
+        ? `${data.response_time_ms} ms`
+        : 'N/A';
+
+    pill.className = isOnline
+      ? 'flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-container text-on-secondary-container'
+      : 'flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-error-container text-on-error-container';
+
+    statusCode.className = isOnline
+      ? 'font-mono-metric-lg text-mono-metric-lg font-semibold text-secondary'
+      : 'font-mono-metric-lg text-mono-metric-lg font-semibold text-error';
+
+    latencyVal.className = isOnline
+      ? 'font-mono-metric-lg text-mono-metric-lg font-semibold text-on-surface'
+      : 'font-mono-metric-lg text-mono-metric-lg font-semibold text-error';
+
+    latencyRating.innerText = isOnline ? 'Checked' : 'Unavailable';
+
+    telemetryIp.innerText = '—';
+    telemetryContent.innerText = '—';
+    telemetrySsl.innerText = '—';
+
+    document.getElementById('checked-timestamp').innerText =
+      new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+
+  } catch (error) {
+    console.error('PulseCheck error:', error);
+    alert('Could not connect to the PulseCheck backend.');
+  } finally {
+    btnText.innerText = 'Check Status';
+    btnIcon.classList.remove('animate-spin');
+    results.style.opacity = '1';
+  }
+}
 
   document.getElementById('target-url-input').addEventListener('input', updateCurlSnippet);
 </script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-sm"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="endpoints" href="#"><span class="material-symbols-outlined text-[22px]">dns</span><span class="font-label-caps text-label-caps mt-space-2xs">Monitors</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-colors text-primary font-semibold" data-path="probe" href="#"><span class="material-symbols-outlined text-[22px]">bolt</span><span class="font-label-caps text-label-caps mt-space-2xs">Probe</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="incidents" href="#"><span class="material-symbols-outlined text-[22px]">crisis_alert</span><span class="font-label-caps text-label-caps mt-space-2xs">Incidents</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-label-caps text-label-caps mt-space-2xs">Config</span></a></div></nav></body></html>
